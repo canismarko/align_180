@@ -90,8 +90,9 @@ def flip(m, axis):
 def alignment_pass(img, img_180):
     upsample = 2
     # Register the translation correction
-    trans = my_register_translation(img, img_180, upsample_factor=upsample)
-    # trans = trans[0]
+    # trans = my_register_translation(img, img_180, upsample_factor=upsample)
+    trans = register_translation(img, img_180, upsample_factor=upsample)
+    trans = trans[0]
     # Register the rotation correction
     lp_center = (int(img.shape[0] / 2), int(img.shape[1] / 2))
     # Eliminate translational offset before finding tilt
